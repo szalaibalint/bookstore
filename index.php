@@ -3,7 +3,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="hu">
 
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ogani | Template</title>
+    <title>Könyvesbolt</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -33,64 +33,7 @@
         <div class="loader"></div>
     </div>
 
-    <!-- Humberger Begin -->
-    <div class="humberger__menu__overlay"></div>
-    <div class="humberger__menu__wrapper">
-        <div class="humberger__menu__logo">
-            <a href="#"><img src="img/logo.png" alt=""></a>
-        </div>
-        <div class="humberger__menu__cart">
-            <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
-        </div>
-        <div class="humberger__menu__widget">
-            <div class="header__top__right__language">
-                <img src="img/language.png" alt="">
-                <div>English</div>
-                <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li><a href="#">Spanis</a></li>
-                    <li><a href="#">English</a></li>
-                </ul>
-            </div>
-            <div class="header__top__right__auth">
-                <a href="#"><i class="fa fa-user"></i> Login</a>
-            </div>
-        </div>
-        <nav class="humberger__menu__nav mobile-menu">
-            <ul>
-                <li class="active"><a href="./index.html">Home</a></li>
-                <li><a href="./shop-grid.html">Shop</a></li>
-                <li><a href="#">Pages</a>
-                    <ul class="header__menu__dropdown">
-                        <li><a href="./shop-details.html">Shop Details</a></li>
-                        <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                        <li><a href="./checkout.html">Check Out</a></li>
-                        <li><a href="./blog-details.html">Blog Details</a></li>
-                    </ul>
-                </li>
-                <li><a href="./blog.html">Blog</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-            </ul>
-        </nav>
-        <div id="mobile-menu-wrap"></div>
-        <div class="header__top__right__social">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest-p"></i></a>
-        </div>
-        <div class="humberger__menu__contact">
-            <ul>
-                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                <li>Free Shipping for all Order of $99</li>
-            </ul>
-        </div>
-    </div>
-    <!-- Humberger End -->
+   
 
     <!-- Header Section Begin -->
     <header class="header">
@@ -100,30 +43,22 @@
                     <div class="col-lg-6">
                         <div class="header__top__left">
                             <ul>
-                                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                                <li>Free Shipping for all Order of $99</li>
+                                <li><i class="fa fa-envelope"></i> hello@gmail.com</li>
+                                <li>Ingyenes szállítás minden péntekenként</li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="header__top__right">
                             <div class="header__top__right__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                                <a target="_blank" href="https://www.crazygames.com/game/cubes-2048-io"><i class="fa fa-facebook"></i></a>
+                                <a target="_blank" href="https://www.hasznaltauto.hu/szemelyauto/bmw/730/bmw_730ld_automata-20553496#sid=8701ddbe-e5cc-45d5-82c5-8e8ffd9e2819"><i class="fa fa-twitter"></i></a>
+                                <a target="_blank" href="https://bloch.suli.hu/"><i class="fa fa-linkedin"></i></a>
+                                <a target="_blank" href="https://csepel.hu/#/"><i class="fa fa-pinterest-p"></i></a>
                             </div>
-                            <div class="header__top__right__language">
-                                <img src="img/language.png" alt="">
-                                <div>English</div>
-                                <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">Spanis</a></li>
-                                    <li><a href="#">English</a></li>
-                                </ul>
-                            </div>
+                           
                             <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
+                                <a ><i class="fa fa-user"></i> Bejelentkezés</a>
                             </div>
                         </div>
                     </div>
@@ -134,24 +69,24 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                        <a href="./index.html"> <img src="img/Open_book_nae_02.svg.png" alt="book"></a>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <nav class="header__menu">
-                        <ul>
-                            <li><a href="./index.html">Home</a></li>
-                            <li class="active"><a href="./shop-grid.html">Shop</a></li>
-                            <li><a href="#">Pages</a>
+                <div class="col-lg-6" >
+                    <nav class="header__menu" >
+                        <ul >
+                          
+                            <li class="active"><a href="./shop-grid.html">Főoldal</a></li>
+                            <li><a href="#">Oldalak</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                                    <li><a href="./shop-details.html">Bolt adatai</a></li>
+                                    <li><a href="./shoping-cart.html">Bevásárló kosár</a></li>
+                                    <li><a href="./checkout.html">Fizetés</a></li>
+                                    <li><a href="./blog-details.html">Webolal Részletei</a></li>
                                 </ul>
                             </li>
                             <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contact</a></li>
+                            <li><a href="./contact.html">Elérhetőség</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -161,7 +96,7 @@
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
+                        <div class="header__cart__price">Áruk <span></span></div>
                     </div>
                 </div>
             </div>
@@ -180,20 +115,19 @@
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
-                            <span>All departments</span>
+                            <span>Kategóriák</span>
                         </div>
                         <ul>
-                            <li><a href="#">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
-                            <li><a href="#">Fruit & Nut Gifts</a></li>
-                            <li><a href="#">Fresh Berries</a></li>
-                            <li><a href="#">Ocean Foods</a></li>
-                            <li><a href="#">Butter & Eggs</a></li>
-                            <li><a href="#">Fastfood</a></li>
-                            <li><a href="#">Fresh Onion</a></li>
-                            <li><a href="#">Papayaya & Crisps</a></li>
-                            <li><a href="#">Oatmeal</a></li>
-                            <li><a href="#">Fresh Bananas</a></li>
+                            <li><a href="#">Sport</a></li>
+                            <li><a href="#">Fiatalsági irodalom</a></li>
+                            <li><a href="#">Fikció</a></li>
+                            <li><a href="#">Irodalom</a></li>
+                            <li><a href="#">Filozófia</a></li>
+                            <li><a href="#">Naplók</a></li>
+                            <li><a href="#">Krimi</a></li>
+                            <li><a href="#">Akció</a></li>
+                            <li><a href="#">Thriller</a></li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -202,11 +136,11 @@
                         <div class="hero__search__form">
                             <form action="#">
                                 <div class="hero__search__categories">
-                                    All Categories
+                                    Összes kategória
                                     <span class="arrow_carrot-down"></span>
                                 </div>
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
+                                <input type="text" placeholder="Mit szeretnél keresni?">
+                                <button type="submit" class="site-btn">Keresés</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">
@@ -214,8 +148,8 @@
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
-                                <span>support 24/7 time</span>
+                                <h5>+36 70 425 9419</h5>
+                                <span>Ügyfélszolgálat 0-24</span>
                             </div>
                         </div>
                     </div>
@@ -226,15 +160,14 @@
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="img/1831_preview.v3.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Organi Shop</h2>
-                        <div class="breadcrumb__option">
-                            <a href="./index.html">Home</a>
-                            <span>Shop</span>
+                        <h2>Könyvesbolt</h2>
+                       
+                            
                         </div>
                     </div>
                 </div>
@@ -250,22 +183,21 @@
                 <div class="col-lg-3 col-md-5">
                     <div class="sidebar">
                         <div class="sidebar__item">
-                            <h4>Department</h4>
+                            <h4>Termékek</h4>
                             <ul>
-                                <li><a href="#">Fresh Meat</a></li>
-                                <li><a href="#">Vegetables</a></li>
-                                <li><a href="#">Fruit & Nut Gifts</a></li>
-                                <li><a href="#">Fresh Berries</a></li>
-                                <li><a href="#">Ocean Foods</a></li>
-                                <li><a href="#">Butter & Eggs</a></li>
-                                <li><a href="#">Fastfood</a></li>
-                                <li><a href="#">Fresh Onion</a></li>
-                                <li><a href="#">Papayaya & Crisps</a></li>
-                                <li><a href="#">Oatmeal</a></li>
+                            <li><a href="#">Sport</a></li>
+                            <li><a href="#">Fiatalsági irodalom</a></li>
+                            <li><a href="#">Fikció</a></li>
+                            <li><a href="#">Irodalom</a></li>
+                            <li><a href="#">Filozófia</a></li>
+                            <li><a href="#">Naplók</a></li>
+                            <li><a href="#">Krimi</a></li>
+                            <li><a href="#">Akció</a></li>
+                            <li><a href="#">Thriller</a></li>
                             </ul>
                         </div>
                         <div class="sidebar__item">
-                            <h4>Price</h4>
+                            <h4>Árak</h4>
                             <div class="price-range-wrap">
                                 <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
                                     data-min="10" data-max="540">
@@ -288,16 +220,16 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-5">
                                 <div class="filter__sort">
-                                    <span>Sort By</span>
+                                    <span>Rendezés</span>
                                     <select>
-                                        <option value="0">Default</option>
-                                        <option value="0">Default</option>
+                                        <option value="0">Ár szerint csökkenő</option>
+                                        <option value="0">Ár szerint növekvő</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <div class="filter__found">
-                                    <h6><span>16</span> Products found</h6>
+                                    <h6><span>0</span> terméket találtunk</h6>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-3">
@@ -337,12 +269,7 @@
                             
                         ?>
                     </div>
-                    <div class="product__pagination">
-                        <a href="#">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#"><i class="fa fa-long-arrow-right"></i></a>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -359,28 +286,28 @@
                             <a href="./index.html"><img src="img/logo.png" alt=""></a>
                         </div>
                         <ul>
-                            <li>Address: 60-49 Road 11378 New York</li>
-                            <li>Phone: +65 11.188.888</li>
-                            <li>Email: hello@colorlib.com</li>
+                            <li>Address: Halásztelek 2314 Kisgyár u. 98</li>
+                            <li>Phone: +36 70 425 9419</li>
+                            <li>Email: szalaionthelow</li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
                     <div class="footer__widget">
-                        <h6>Useful Links</h6>
+                        <h6>Linkek</h6>
                         <ul>
-                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Rólunk</a></li>
                             <li><a href="#">About Our Shop</a></li>
-                            <li><a href="#">Secure Shopping</a></li>
-                            <li><a href="#">Delivery infomation</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Our Sitemap</a></li>
+                            <li><a href="#">Biztonságos vásárlás</a></li>
+                            <li><a href="#">Szállítás információ</a></li>
+                            <li><a href="#">adatvédelmi politika</a></li>
+                            <li><a href="#">Oldalunk</a></li>
                         </ul>
                         <ul>
-                            <li><a href="#">Who We Are</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Kik vagyunk</a></li>
+                            <li><a href="#">Szolgáltatásaink</a></li>
+                            <li><a href="#">Projektek</a></li>
+                            <li><a href="#">Elérhetőség</a></li>
                             <li><a href="#">Innovation</a></li>
                             <li><a href="#">Testimonials</a></li>
                         </ul>
