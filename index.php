@@ -288,7 +288,7 @@
                         <ul>
                             <li>Address: Halásztelek 2314 Kisgyár u. 98</li>
                             <li>Phone: +36 70 425 9419</li>
-                            <li>Email: szalaionthelow</li>
+                            <li>Email: szalaionthelow@gmail.com</li>
                         </ul>
                     </div>
                 </div>
@@ -297,7 +297,7 @@
                         <h6>Linkek</h6>
                         <ul>
                             <li><a href="#">Rólunk</a></li>
-                            <li><a href="#">About Our Shop</a></li>
+                            <li><a href="#">A webáruházról</a></li>
                             <li><a href="#">Biztonságos vásárlás</a></li>
                             <li><a href="#">Szállítás információ</a></li>
                             <li><a href="#">adatvédelmi politika</a></li>
@@ -308,24 +308,24 @@
                             <li><a href="#">Szolgáltatásaink</a></li>
                             <li><a href="#">Projektek</a></li>
                             <li><a href="#">Elérhetőség</a></li>
-                            <li><a href="#">Innovation</a></li>
-                            <li><a href="#">Testimonials</a></li>
+                            <li><a href="#">Találmányok</a></li>
+                            <li><a href="#">Ajándék</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12">
                     <div class="footer__widget">
-                        <h6>Join Our Newsletter Now</h6>
-                        <p>Get E-mail updates about our latest shop and special offers.</p>
+                        <h6>Feliratkozás a hírlevelünkre</h6>
+                        <p>Kapj értesítéseket a webáruházunk friss ajánlatairól.</p>
                         <form action="#">
-                            <input type="text" placeholder="Enter your mail">
-                            <button type="submit" class="site-btn">Subscribe</button>
+                            <input type="text" placeholder="Ide írd az email">
+                            <button type="submit" class="site-btn">Feliratkozás</button>
                         </form>
                         <div class="footer__widget__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                        <a target="_blank" href="https://www.crazygames.com/game/cubes-2048-io"><i class="fa fa-facebook"></i></a>
+                                <a target="_blank" href="https://www.hasznaltauto.hu/szemelyauto/bmw/730/bmw_730ld_automata-20553496#sid=8701ddbe-e5cc-45d5-82c5-8e8ffd9e2819"><i class="fa fa-twitter"></i></a>
+                                <a target="_blank" href="https://bloch.suli.hu/"><i class="fa fa-linkedin"></i></a>
+                                <a target="_blank" href="https://csepel.hu/#/"><i class="fa fa-pinterest-p"></i></a>
                         </div>
                     </div>
                 </div>
@@ -334,7 +334,7 @@
                 <div class="col-lg-12">
                     <div class="footer__copyright">
                         <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script>  <i class="fa fa-heart" aria-hidden="true"></i> <a href="https://colorlib.com" target="_blank"></a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
                         <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
                     </div>
