@@ -83,7 +83,7 @@ echo <<<EOT
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="index.php?page=main"> <img src="img/Open_book_nae_02.svg.png" alt="book"></a>
+                        <a href="index.php?page=main"> <img src="img/Open_book_nae_02.svg.png" alt="book" style="width: 110px;"></a>
                     </div>
                 </div>
                 <div class="col-lg-6" >
