@@ -11,6 +11,8 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+</style>
     <title>Könyvesbolt</title>
 
     <!-- Google Font -->
@@ -68,8 +70,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
-                    <div class="header__logo">
-                        <a href="./index.html"> <img src="img/Open_book_nae_02.svg.png" alt="book"></a>
+                    <div class="header__logo book">
+                        <a href="./index.html">  <img src="img/Open_book_nae_02.svg.png"  alt="book" style="width: 100px; width: 100px;"></a>
                     </div>
                 </div>
                 <div class="col-lg-6" >
@@ -300,7 +302,7 @@
                             <li><a href="#">A webáruházról</a></li>
                             <li><a href="#">Biztonságos vásárlás</a></li>
                             <li><a href="#">Szállítás információ</a></li>
-                            <li><a href="#">adatvédelmi politika</a></li>
+                            <li><a href="#">Adatvédelmi szabályzat</a></li>
                             <li><a href="#">Oldalunk</a></li>
                         </ul>
                         <ul>
