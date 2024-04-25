@@ -20,25 +20,17 @@ if (isset($_GET['id'])) {
 <html lang="zxx">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Ogani Template">
-    <meta name="keywords" content="Ogani, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ogani | Template</title>
+    <style>
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
-
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+            input[type="number"] {
+                -moz-appearance: textfield;
+            }
+        </style>
 </head>
 
 <body>
@@ -54,15 +46,15 @@ if (isset($_GET['id'])) {
                             <span>Kategóriák</span>
                         </div>
                         <ul>
-                            <li><a href="#">Sport</a></li>
-                            <li><a href="#">Fiatalsági irodalom</a></li>
-                            <li><a href="#">Fikció</a></li>
-                            <li><a href="#">Irodalom</a></li>
-                            <li><a href="#">Filozófia</a></li>
-                            <li><a href="#">Naplók</a></li>
-                            <li><a href="#">Krimi</a></li>
-                            <li><a href="#">Akció</a></li>
-                            <li><a href="#">Thriller</a></li>
+                            <li><a href="index.php?page=products&cat=1">Sport</a></li>
+                            <li><a href="index.php?page=products&cat=2">Fiatalsági irodalom</a></li>
+                            <li><a href="index.php?page=products&cat=3">Fikció</a></li>
+                            <li><a href="index.php?page=products&cat=4">Irodalom</a></li>
+                            <li><a href="index.php?page=products&cat=5">Filozófia</a></li>
+                            <li><a href="index.php?page=products&cat=6">Naplók</a></li>
+                            <li><a href="index.php?page=products&cat=7">Krimi</a></li>
+                            <li><a href="index.php?page=products&cat=8">Akció</a></li>
+                            <li><a href="index.php?page=products&cat=9">Thriller</a></li>
                         </ul>
                     </div>
                 </div>
@@ -107,46 +99,36 @@ if (isset($_GET['id'])) {
                 <div class="col-lg-9 col-md-9 col-sm-9">
                     <div class="product__details__text">
                     <h3 class="name"><?=$product['title']?></h3>
-                        
+                    <div class="product__details__price">
                     <span class="price" style="color:red">
                         <?=$product['price'] * 1?> Ft
                         <?php if ($product['rrp'] > 0): ?>
                         <span class="rrp"><?=$product['rrp']?></span>
                         <?php endif; ?>
                     </span>
-                    <div class="description">
-            <?=$product['description']?>
-        </div>
+                    </div>  
+                    <p><?=$product['description']?></p>
+            
                         
                         
                         
                         <form action="index.php?page=cart" method="post">
-                        <div class="product__details__quantity">
+                        <div class="product__details__quantity unselectable">
                             <div class="quantity">
                                 <div class="pro-qty">
-                                <input type="text" class="pro-qty" name="quantity" value="1" min="1" max="<?=$product['quantity']?>" placeholder="Quantity" required>
+                                <input type="number" class="pro-qty" name="quantity" value="1" min="1" max="<?=$product['quantity']?>" placeholder="Quantity" required>
                                 </div>
                             </div>
                         </div>
             <input type="hidden" name="product_id" value="<?=$product['id']?>">
-            <input type="submit" class="primary-btn" value="Add To Cart">
+            <input type="submit" class="primary-btn" value="KOSÁRBA">
         </form>
                         <ul>
-                            <li><b>Availability</b> <span>In Stock</span></li>
-                            <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
-                            <li><b>Weight</b> <span>0.5 kg</span></li>
-                            <li><b>Share on</b>
-                                <div class="share">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                                </div>
-                            </li>
+                            <li><b>Availability</b><span><?php if($product['quantity'] > 0) {echo 'Raktáron';} else {echo 'Nincs raktáron';}?></span></li>
                         </ul>
                     </div>
                 </div>
-                
+
                 </div>
             </div>
         </div>

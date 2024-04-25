@@ -3,16 +3,46 @@
 $num_products_on_each_page = 9;
 // The current page - in the URL, will appear as index.php?page=products&p=1, index.php?page=products&p=2, etc...
 $current_page = isset($_GET['p']) && is_numeric($_GET['p']) ? (int)$_GET['p'] : 1;
-// Select products ordered by the date added
-$stmt = $pdo->prepare('SELECT * FROM products ORDER BY date_added DESC LIMIT ?,?');
-// bindValue will allow us to use an integer in the SQL statement, which we need to use for the LIMIT clause
-$stmt->bindValue(1, ($current_page - 1) * $num_products_on_each_page, PDO::PARAM_INT);
-$stmt->bindValue(2, $num_products_on_each_page, PDO::PARAM_INT);
-$stmt->execute();
-// Fetch the products from the database and return the result as an Array
-$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$cat = isset($_GET['cat']) && is_numeric($_GET['cat']) ? (int)$_GET['cat'] : 0;
+$ord = isset($_GET['ord']) && is_numeric($_GET['ord']) ? (int)$_GET['ord'] : 0;
 // Get the total number of products
-$total_products = $pdo->query('SELECT * FROM products')->rowCount();
+
+if ($cat == 0) {
+    $total_products = $pdo->query('SELECT * FROM products')->rowCount();
+
+    if ($ord == 0){
+    $stmt = $pdo->prepare('SELECT * FROM products ORDER BY price DESC LIMIT ?,?');
+    } else {
+        $stmt = $pdo->prepare('SELECT * FROM products ORDER BY price ASC LIMIT ?,?');
+    }
+    // bindValue will allow us to use an integer in the SQL statement, which we need to use for the LIMIT clause
+    $stmt->bindValue(1, ($current_page - 1) * $num_products_on_each_page, PDO::PARAM_INT);
+    $stmt->bindValue(2, $num_products_on_each_page, PDO::PARAM_INT);
+    $stmt->execute();
+    // Fetch the products from the database and return the result as an Array
+    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+else{
+    $total_products = $pdo->query('SELECT * FROM products WHERE category=' . $cat)->rowCount();
+
+    if ($ord == 0){
+    $stmt = $pdo->prepare('SELECT * FROM products WHERE category = ? ORDER BY price DESC LIMIT ?, ?');
+    }
+    else{
+        $stmt = $pdo->prepare('SELECT * FROM products WHERE category = ? ORDER BY price ASC LIMIT ?, ?');
+    }
+    
+    // bindValue will allow us to use an integer in the SQL statement, which we need to use for the LIMIT clause
+    $stmt->bindValue(1, $cat, PDO::PARAM_INT);
+    $stmt->bindValue(2, ($current_page - 1) * $num_products_on_each_page, PDO::PARAM_INT);
+    $stmt->bindValue(3, $num_products_on_each_page, PDO::PARAM_INT);
+    $stmt->execute();
+    // Fetch the products from the database and return the result as an Array
+    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+$pages_ = $total_products / $num_products_on_each_page;
+$pages = floor($pages_) + 1;
 ?>
 
 <?=template_header('Products')?>
@@ -27,17 +57,19 @@ $total_products = $pdo->query('SELECT * FROM products')->rowCount();
                             <i class="fa fa-bars"></i>
                             <span>Kategóriák</span>
                         </div>
+
+
                         <ul>
-                            <li><a href="#">Sport</a></li>
-                            <li><a href="#">Fiatalsági irodalom</a></li>
-                            <li><a href="#">Fikció</a></li>
-                            <li><a href="#">Irodalom</a></li>
-                            <li><a href="#">Filozófia</a></li>
-                            <li><a href="#">Naplók</a></li>
-                            <li><a href="#">Krimi</a></li>
-                            <li><a href="#">Akció</a></li>
-                            <li><a href="#">Thriller</a></li>
-                        </ul>
+                            <li><a href="index.php?page=products&cat=1">Sport</a></li>
+                            <li><a href="index.php?page=products&cat=2">Fiatalsági irodalom</a></li>
+                            <li><a href="index.php?page=products&cat=3">Fikció</a></li>
+                            <li><a href="index.php?page=products&cat=4">Irodalom</a></li>
+                            <li><a href="index.php?page=products&cat=5">Filozófia</a></li>
+                            <li><a href="index.php?page=products&cat=6">Naplók</a></li>
+                            <li><a href="index.php?page=products&cat=7">Krimi</a></li>
+                            <li><a href="index.php?page=products&cat=8">Akció</a></li>
+                            <li><a href="index.php?page=products&cat=9">Thriller</a></li>
+                            </ul>
                     </div>
                 </div>
                 <div class="col-lg-9">
@@ -63,6 +95,7 @@ $total_products = $pdo->query('SELECT * FROM products')->rowCount();
         </div>
     </section>
     <!-- Hero Section End -->
+    
     <!-- Product Section Begin -->
     <section class="product spad">
         <div class="container">
@@ -72,33 +105,39 @@ $total_products = $pdo->query('SELECT * FROM products')->rowCount();
                         <div class="sidebar__item">
                             <h4>Termékek</h4>
                             <ul>
-                            <li><a href="#">Sport</a></li>
-                            <li><a href="#">Fiatalsági irodalom</a></li>
-                            <li><a href="#">Fikció</a></li>
-                            <li><a href="#">Irodalom</a></li>
-                            <li><a href="#">Filozófia</a></li>
-                            <li><a href="#">Naplók</a></li>
-                            <li><a href="#">Krimi</a></li>
-                            <li><a href="#">Akció</a></li>
-                            <li><a href="#">Thriller</a></li>
-                            </ul>
-                        </div>
-                        <div class="sidebar__item">
-                            <h4>Árak</h4>
-                            <div class="price-range-wrap">
-                                <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                                    data-min="10" data-max="540">
-                                    <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
-                                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                                </div>
-                                <div class="range-slider">
-                                    <div class="price-input">
-                                        <input type="text" id="minamount">
-                                        <input type="text" id="maxamount">
-                                    </div>
-                                </div>
-                            </div>
+
+                                <?php 
+                                    $categories = array(
+                                        1 => "Sport",
+                                        2 => "Fiatalsági irodalom",
+                                        3 => "Fikció",
+                                        4 => "Irodalom",
+                                        5 => "Filozófia",
+                                        6 => "Naplók",
+                                        7 => "Krimi",
+                                        8 => "Akció",
+                                        9 => "Thriller"
+                                    );
+
+
+                                    for ($ccat = 1; $ccat <= 9; $ccat++):
+                                ?>
+                                <?php
+                                    if ($ccat == $cat):
+                                ?>
+                                    <li><a style="color: #dd2222; font-weight: bold;" href="index.php?page=products">
+                                    <span class="fa fa-times"></span> <?=$categories[$ccat]?></a>
+                                </li>
+
+                                <?php else:
+                                ?>
+                                <li><a href="index.php?page=products&cat=<?=$ccat?>"><?=$categories[$ccat]?></a></li>
+                                <?php
+                                    endif;
+                                    endfor;
+                                ?>
+                                </ul>
+                            
                         </div>
                     </div>
                 </div>
@@ -108,10 +147,28 @@ $total_products = $pdo->query('SELECT * FROM products')->rowCount();
                             <div class="col-lg-4 col-md-5">
                                 <div class="filter__sort">
                                     <span>Rendezés</span>
-                                    <select>
+                                    <select id="ordSel" onchange="ordValt()">
+                                        <?php
+                                            if ($ord == 0):
+                                        ?>
+                                        <option value="0" selected>Ár szerint csökkenő</option>
+                                        <option value="1">Ár szerint növekvő</option>
+                                        <?php else:
+                                        ?>
                                         <option value="0">Ár szerint csökkenő</option>
-                                        <option value="0">Ár szerint növekvő</option>
+                                        <option value="1" selected>Ár szerint növekvő</option>
+                                        <?php endif; ?>
                                     </select>
+
+                                    <script>
+                                        function ordValt() {
+                                            var selectBox = document.getElementById("ordSel");
+                                            var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+                                        window.location.href = "index.php?page=products&cat=<?=$cat?>&ord=" + selectedValue;
+
+                                        
+                                        };
+                                    </script>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4">
@@ -123,12 +180,7 @@ $total_products = $pdo->query('SELECT * FROM products')->rowCount();
                     </div>
                     <div class="row">
 
-
-                        <?php foreach ($products as $product): ?>
-                            
-
-
-
+                        <?php foreach ($products as $product):?>
                             <div class="col-lg-4 col-md-6 col-sm-6">
                             <a href="index.php?page=product&id=<?=$product['id']?>">
                                         <div class="product__item">
@@ -147,47 +199,28 @@ $total_products = $pdo->query('SELECT * FROM products')->rowCount();
                             </a>
                                     </div>
                         <?php endforeach; ?>
-
-                        
                         
                     </div>
+
+                    
+
                     <div class="product__pagination">
                         <?php if ($current_page > 1): ?>
-                        <a href="index.php?page=products&p=<?=$current_page-1?>"><i class="fa fa-long-arrow-left"></i></a>
+                        <a href="index.php?page=products&cat=<?=$cat?>&p=<?=$current_page-1?>&ord=<?=$ord?>"><i class="fa fa-long-arrow-left"></i></a>
                         <?php endif; ?>
                         
-                        <?php if ($current_page == 1): ?>
-                        <a style="background-color: rgba(127, 173, 57, 1); color: white;" href="index.php?page=products&p=1">1</a>
-                        <?php else: ?>
-                        <a href="index.php?page=products&p=1">1</a>
-                        <?php endif; ?>
+                        <?php for ($cpage = 1; $cpage <= $pages; $cpage++): ?>
 
-                        <?php if ($current_page == 2): ?>
-                        <a style="background-color: rgba(127, 173, 57, 1); color: white;" href="index.php?page=products&p=2">2</a>
+                        <?php if ($current_page == $cpage): ?>
+                        <a style="background-color: rgba(127, 173, 57, 1); color: white;" href="index.php?page=products&cat=<?=$cat?>&p=<?=$cpage?>&ord=<?=$ord?>"><?=$cpage?></a>
                         <?php else: ?>
-                        <a href="index.php?page=products&p=2">2</a>
+                        <a href="index.php?page=products&cat=<?=$cat?>&p=<?=$cpage?>&ord=<?=$ord?>"><?=$cpage?></a>
                         <?php endif; ?>
-
-                        <?php if ($current_page == 3): ?>
-                        <a style="background-color: rgba(127, 173, 57, 1); color: white;" href="index.php?page=products&p=3">3</a>
-                        <?php else: ?>
-                        <a href="index.php?page=products&p=3">3</a>
-                        <?php endif; ?>
-
-                        <?php if ($current_page == 4): ?>
-                        <a style="background-color: rgba(127, 173, 57, 1); color: white;" href="index.php?page=products&p=4">4</a>
-                        <?php else: ?>
-                        <a href="index.php?page=products&p=4">4</a>
-                        <?php endif; ?>
-
-                        <?php if ($current_page == 5): ?>
-                        <a style="background-color: rgba(127, 173, 57, 1); color: white;" href="index.php?page=products&p=5">5</a>
-                        <?php else: ?>
-                        <a href="index.php?page=products&p=5">5</a>
-                        <?php endif; ?>
+                        <?php endfor; ?>
+                        
 
                         <?php if ($total_products > ($current_page * $num_products_on_each_page) - $num_products_on_each_page + count($products)): ?>
-                        <a href="index.php?page=products&p=<?=$current_page+1?>"><i class="fa fa-long-arrow-right"></i></a>
+                        <a href="index.php?page=products&cat=<?=$cat?>&p=<?=$current_page+1?>&ord=<?=$ord?>"><i class="fa fa-long-arrow-right"></i></a>
                         <?php endif; ?>
                     </div>
                 </div>

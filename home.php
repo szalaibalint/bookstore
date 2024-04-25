@@ -19,15 +19,15 @@ $recently_added_products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <span>Kategóriák</span>
                         </div>
                         <ul>
-                        <li><a href="#">Sport</a></li>
-                            <li><a href="#">Fiatalsági irodalom</a></li>
-                            <li><a href="#">Fikció</a></li>
-                            <li><a href="#">Irodalom</a></li>
-                            <li><a href="#">Filozófia</a></li>
-                            <li><a href="#">Naplók</a></li>
-                            <li><a href="#">Krimi</a></li>
-                            <li><a href="#">Akció</a></li>
-                            <li><a href="#">Thriller</a></li>
+                            <li><a href="index.php?page=products&cat=1">Sport</a></li>
+                            <li><a href="index.php?page=products&cat=2">Fiatalsági irodalom</a></li>
+                            <li><a href="index.php?page=products&cat=3">Fikció</a></li>
+                            <li><a href="index.php?page=products&cat=4">Irodalom</a></li>
+                            <li><a href="index.php?page=products&cat=5">Filozófia</a></li>
+                            <li><a href="index.php?page=products&cat=6">Naplók</a></li>
+                            <li><a href="index.php?page=products&cat=7">Krimi</a></li>
+                            <li><a href="index.php?page=products&cat=8">Akció</a></li>
+                            <li><a href="index.php?page=products&cat=9">Thriller</a></li>
                         </ul>
                     </div>
                 </div>
@@ -51,8 +51,8 @@ $recently_added_products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <div class="hero__item set-bg" data-setbg="imgs/banner.jpg">
                         <div class="hero__text">
-                            <span>NAGY VÁLASZTÉKBAN</span>
-                            <h2>Eladó<br/>Könyvek</h2>
+                            <span>NAGY VÁLASZTÉKÚ</span>
+                            <h2>Online<br/>Könyvesbolt</h2>
                             <p></p>
                             <a href="index.php?page=products" class="primary-btn">VÁSÁROLJ MOST</a>
                         </div>

@@ -80,6 +80,19 @@ if ($products_in_cart) {
 
 <?=template_header('Products')?>
 
+<head>
+    <style>
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            input[type="number"] {
+                -moz-appearance: textfield;
+            }
+        </style>
+</head>
 
 <!-- Hero Section Begin -->
 <section class="hero hero-normal">
@@ -92,15 +105,15 @@ if ($products_in_cart) {
                             <span>Kategóriák</span>
                         </div>
                         <ul>
-                            <li><a href="#">Sport</a></li>
-                            <li><a href="#">Fiatalsági irodalom</a></li>
-                            <li><a href="#">Fikció</a></li>
-                            <li><a href="#">Irodalom</a></li>
-                            <li><a href="#">Filozófia</a></li>
-                            <li><a href="#">Naplók</a></li>
-                            <li><a href="#">Krimi</a></li>
-                            <li><a href="#">Akció</a></li>
-                            <li><a href="#">Thriller</a></li>
+                            <li><a href="index.php?page=products&cat=1">Sport</a></li>
+                            <li><a href="index.php?page=products&cat=2">Fiatalsági irodalom</a></li>
+                            <li><a href="index.php?page=products&cat=3">Fikció</a></li>
+                            <li><a href="index.php?page=products&cat=4">Irodalom</a></li>
+                            <li><a href="index.php?page=products&cat=5">Filozófia</a></li>
+                            <li><a href="index.php?page=products&cat=6">Naplók</a></li>
+                            <li><a href="index.php?page=products&cat=7">Krimi</a></li>
+                            <li><a href="index.php?page=products&cat=8">Akció</a></li>
+                            <li><a href="index.php?page=products&cat=9">Thriller</a></li>
                             
                         </ul>
                     </div>
@@ -172,7 +185,7 @@ if ($products_in_cart) {
                                     </td>
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
-                                            <div class="pro-qty">
+                                            <div class="pro-qty unselectable">
                                             <input type="number" name="quantity-<?=$product['id']?>" value="<?=$products_in_cart[$product['id']]?>" min="1" max="<?=$product['quantity']?>" placeholder="Quantity" required>
                                             </div>
                                         </div>
