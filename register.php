@@ -9,10 +9,10 @@ $email_error = "";
 $telephone_error = "";
 $security_answer_error = "";
 
+$good = true;
+
 if(isset($_POST['register_button']))
 {
-    $good = true;
-
     // Validáció
     if(empty($_POST['full_name']))
     {
@@ -109,12 +109,12 @@ if(isset($_POST['register_button']))
         <?php echo $telephone_error ?>
 
         <label for="security_question">Biztonsági kérdés</label><br>
-        <select class="dropdown" name="security_guestion" id="security_question">
-            <option value="1">Első háziállat neve</option>
-            <option value="2">Legidősebb testvéred neve</option>
-            <option value="3">Kedvenc filmed</option>
-            <option value="4">Első autód márkája</option>
-            <option value="5">Szülővárosod</option>
+        <select name="security_question" id="security_question">
+            <option value="Első háziállat">Első háziállat neve</option>
+            <option value="Legidősebb testvéred neve">Legidősebb testvéred neve</option>
+            <option value="Kedvenc filmed">Kedvenc filmed</option>
+            <option value="Első autód márkája">Első autód márkája</option>
+            <option value="Szülővárosod">Szülővárosod</option>
         </select><br>
 
         <label for="security_answer">Biztonsági kérdés válasza</label><br>
@@ -136,8 +136,19 @@ if(!$good || !isset($_POST['register_button']))
 
 // Adatbazisba feltölti az adatokat ha dzso
 require("database.php");
-echo "<script>window.alert('asdfghjkléá')</script>";
+
+echo $_POST['security_question'];
 
 
-mysqli_close($connection);
+$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+$phone = str_replace($_POST['phone']);
+$sql = sprintf("INSERT INTO register(r_fnm, r_unm, r_pwd, r_cno, r_email, r_question, r_answer) VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s');", $_POST['full_name'],  $_POST['username'], $password, $_POST['phone'], $_POST['email'], $_POST['security_question'], $_POST['security_answer']);
+
+mysqli_query($conn, $sql);
+
+echo "<script>window.alert('elvileg feltöltötte az adatbázisba')</script>";
+
+mysqli_close($conn);
+
+// TODO Felhasználó bejelentkeztetése
 ?>
