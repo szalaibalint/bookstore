@@ -185,7 +185,7 @@ if ($products_in_cart) {
                                         <h5><a href="index.php?page=product&id=<?=$product['id']?>"><?=$product['title']?></a</h5>
                                     </td>
                                     <td class="shoping__cart__price">
-                                    <?=$product['price']?> Ft
+                                    <?=$product['price'] * 1?> Ft
                                     </td>
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">

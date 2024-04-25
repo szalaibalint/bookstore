@@ -24,7 +24,7 @@ if (isset($_GET['id'])) {
     <div>
         <h1 class="name"><?=$product['title']?></h1>
         <span class="price">
-            <?=$product['price']?> Ft
+            <?=$product['price'] * 1?> Ft
             <?php if ($product['rrp'] > 0): ?>
             <span class="rrp"><?=$product['rrp']?></span>
             <?php endif; ?>

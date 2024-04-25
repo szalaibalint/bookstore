@@ -160,7 +160,7 @@ $total_products = $pdo->query('SELECT * FROM products')->rowCount();
                                             <div class="product__item__text">
                                                 <h6><?=$product['title']?></h6>
                                                 <h5>
-                                                    <?=$product['price']?> Ft
+                                                    <?=$product['price'] * 1?> Ft
                                                     <?php if ($product['rrp'] > 0): ?>
                                                     <span class="rrp"><?=$product['rrp']?></span>
                                                     <?php endif; ?>    
