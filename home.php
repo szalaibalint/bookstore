@@ -49,7 +49,7 @@ $recently_added_products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             </div>
                         </div>
                     </div>
-                    <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
+                    <div class="hero__item set-bg" data-setbg="imgs/banner.jpg">
                         <div class="hero__text">
                             <span>NAGY VÁLASZTÉKBAN</span>
                             <h2>Eladó<br/>Könyvek</h2>
