@@ -2,6 +2,7 @@
 <?php
 $username_error = "";
 $password_error = "";
+$login_error = "";
 $good = true;
 
 if(isset($_POST["login_button"]))
@@ -30,12 +31,16 @@ if(isset($_POST["login_button"]) && $good)
         // Ebben az esetben megtalálta a felhasználót
         $row = mysqli_fetch_assoc($result);
 
-        if(password_verify($_POST['password'], $row["r_pwd"]))
-            echo "jo";
+        if(!password_verify($_POST['password'], $row["r_pwd"]))
+        {
+            $login_error = "<span class='text-danger'>Hibás felhasználónév vagy jelszó</span>";
+        }
         else
-            echo "nemjo";
+        {
+            session_start();
+            $_SESSION["username"] = $row["r_unm"];
+        }
     }
-
     mysqli_close($conn);
 }
 ?>
@@ -73,6 +78,7 @@ if(isset($_POST["login_button"]) && $good)
             <input class="btn btn-success" type="submit" name="login_button" value="Bejelentkezés">
         </div>
     </form>
+    <?php echo $login_error ?>
 </div>
 </body>
 </html>
