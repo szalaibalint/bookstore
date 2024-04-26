@@ -122,10 +122,6 @@ if ($products_in_cart) {
                     <div class="hero__search">
                         <div class="hero__search__form">
                             <form action="#">
-                                <div class="hero__search__categories">
-                                    Összes kategória
-                                    <span class="arrow_carrot-down"></span>
-                                </div>
                                 <input type="text" placeholder="Mit szeretnél keresni?">
                                 <button type="submit" class="site-btn">Keresés</button>
                             </form>
