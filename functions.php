@@ -84,7 +84,18 @@ echo <<<EOT
                             </div>
                            
                             <div class="header__top__right__auth">
-                                <a ><i class="fa fa-user"></i> Bejelentkezés</a>
+EOT;
+if ($_SESSION["username"] != ""):?>
+    <a href="index.php?page=logout"><i class="fa fa-user"> <?=$_SESSION["username"]?></i></a>
+
+                                
+<?php
+else:
+?>
+<a href="index.php?page=login"><i class="fa fa-user"></i> Bejelentkezés</a>
+<?php
+endif;
+echo <<<EOT
                             </div>
                         </div>
                     </div>
