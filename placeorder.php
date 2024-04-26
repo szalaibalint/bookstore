@@ -1,5 +1,5 @@
 <?php
-unset($_SESSION['cart']);
+//unset($_SESSION['cart']);
 ?>
 <?=template_header('Products')?>
 
@@ -71,9 +71,9 @@ unset($_SESSION['cart']);
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                        <h2 style="color: black;">Thanks for purchase big man</h2>
-                        <h5>Big thanks big man</h5>
+                    <div class="breadcrumb__text" style="color:black;">
+                    <h1>Sikeres rendelés</h1>
+                    <p>Köszönjük a rendelésed! Hamarosan felvesszük veled a kapcsolatot a rendeléseddel kapcsolatban emailben.</p>
                     </div>
                 </div>
             </div>
