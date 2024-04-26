@@ -5,9 +5,32 @@ $num_products_on_each_page = 9;
 $current_page = isset($_GET['p']) && is_numeric($_GET['p']) ? (int)$_GET['p'] : 1;
 $cat = isset($_GET['cat']) && is_numeric($_GET['cat']) ? (int)$_GET['cat'] : 0;
 $ord = isset($_GET['ord']) && is_numeric($_GET['ord']) ? (int)$_GET['ord'] : 0;
+$s = isset($_GET['s']) ? $_GET['s'] : '';
 // Get the total number of products
 
-if ($cat == 0) {
+if ($s != '')
+{
+    $stmt = $pdo->prepare("SELECT * FROM products WHERE title LIKE ?");
+    $stmt->execute(["%$s%"]);
+    $total_products = $stmt->rowCount();
+
+    if ($ord == 0){
+    $stmt = $pdo->prepare('SELECT * FROM products WHERE title LIKE ? ORDER BY price DESC LIMIT ?, ?');
+    }
+    else{
+        $stmt = $pdo->prepare('SELECT * FROM products WHERE title LIKE ? ORDER BY price ASC LIMIT ?, ?');
+    }
+    
+    // bindValue will allow us to use an integer in the SQL statement, which we need to use for the LIMIT clause
+    $stmt->bindValue(1, "%$s%", PDO::PARAM_STR);
+    $stmt->bindValue(2, ($current_page - 1) * $num_products_on_each_page, PDO::PARAM_INT);
+    $stmt->bindValue(3, $num_products_on_each_page, PDO::PARAM_INT);
+    $stmt->execute();
+    // Fetch the products from the database and return the result as an Array
+    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+else if ($cat == 0) {
     $total_products = $pdo->query('SELECT * FROM products')->rowCount();
 
     if ($ord == 0){
@@ -75,9 +98,22 @@ $pages = floor($pages_) + 1;
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="#">
-                                <input type="text" placeholder="Mit szeretnél keresni?">
-                                <button type="submit" class="site-btn">Keresés</button>
+                            <form onsubmit="event.preventDefault();">
+                            <?php if ($s != ''): ?>
+                                <input id="search_" type="text" placeholder="Mit szeretnél keresni?" value="<?=$s?>">
+                            <?php else: ?>
+                                
+                                <input id="search_" type="text" placeholder="Mit szeretnél keresni?">
+                            <?php endif; ?>
+                                <button type="submit" onclick="searchS()" class="site-btn">Keresés</button>
+                                
+                                <script>
+                                        function searchS() {
+                                            var selectBox = document.getElementById("search_");
+                                            var selectedValue = selectBox.value;
+                                            window.location.href = "index.php?page=products&s=" + selectedValue;
+                                        };
+                                    </script>
                             </form>
                         </div>
                         <div class="hero__search__phone">
@@ -147,7 +183,10 @@ $pages = floor($pages_) + 1;
                             <div class="col-lg-4 col-md-5">
                                 <div class="filter__sort">
                                     <span>Rendezés</span>
-                                    <select id="ordSel" onchange="ordValt()">
+                                    <select id="ordSel" onchange="ordValtS()">
+                                        <?php 
+                                            if ($s != ''):
+                                        ?>
                                         <?php
                                             if ($ord == 0):
                                         ?>
@@ -158,6 +197,20 @@ $pages = floor($pages_) + 1;
                                         <option value="0">Ár szerint csökkenő</option>
                                         <option value="1" selected>Ár szerint növekvő</option>
                                         <?php endif; ?>
+
+
+                                        <?php else: ?>
+                                        <?php
+                                            if ($ord == 0):
+                                        ?>
+                                        <option value="0" selected>Ár szerint csökkenő</option>
+                                        <option value="1">Ár szerint növekvő</option>
+                                        <?php else:
+                                        ?>
+                                        <option value="0">Ár szerint csökkenő</option>
+                                        <option value="1" selected>Ár szerint növekvő</option>
+                                        <?php endif; ?>
+                                        <?php endif; ?>
                                     </select>
 
                                     <script>
@@ -165,6 +218,14 @@ $pages = floor($pages_) + 1;
                                             var selectBox = document.getElementById("ordSel");
                                             var selectedValue = selectBox.options[selectBox.selectedIndex].value;
                                         window.location.href = "index.php?page=products&cat=<?=$cat?>&ord=" + selectedValue;
+
+                                        
+                                        };
+
+                                        function ordValtS() {
+                                            var selectBox = document.getElementById("ordSel");
+                                            var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+                                        window.location.href = "index.php?page=products&s=<?=$s?>&ord=" + selectedValue;
 
                                         
                                         };
@@ -206,21 +267,21 @@ $pages = floor($pages_) + 1;
 
                     <div class="product__pagination">
                         <?php if ($current_page > 1): ?>
-                        <a href="index.php?page=products&cat=<?=$cat?>&p=<?=$current_page-1?>&ord=<?=$ord?>"><i class="fa fa-long-arrow-left"></i></a>
+                        <a href="index.php?page=products&cat=<?=$cat?>&p=<?=$current_page-1?>&ord=<?=$ord?>&s=<?=$s?>"><i class="fa fa-long-arrow-left"></i></a>
                         <?php endif; ?>
                         
                         <?php for ($cpage = 1; $cpage <= $pages; $cpage++): ?>
 
                         <?php if ($current_page == $cpage): ?>
-                        <a style="background-color: rgba(127, 173, 57, 1); color: white;" href="index.php?page=products&cat=<?=$cat?>&p=<?=$cpage?>&ord=<?=$ord?>"><?=$cpage?></a>
+                        <a style="background-color: rgba(127, 173, 57, 1); color: white;" href="index.php?page=products&cat=<?=$cat?>&p=<?=$cpage?>&ord=<?=$ord?>&s=<?=$s?>"><?=$cpage?></a>
                         <?php else: ?>
-                        <a href="index.php?page=products&cat=<?=$cat?>&p=<?=$cpage?>&ord=<?=$ord?>"><?=$cpage?></a>
+                        <a href="index.php?page=products&cat=<?=$cat?>&p=<?=$cpage?>&ord=<?=$ord?>&s=<?=$s?>"><?=$cpage?></a>
                         <?php endif; ?>
                         <?php endfor; ?>
                         
 
                         <?php if ($total_products > ($current_page * $num_products_on_each_page) - $num_products_on_each_page + count($products)): ?>
-                        <a href="index.php?page=products&cat=<?=$cat?>&p=<?=$current_page+1?>&ord=<?=$ord?>"><i class="fa fa-long-arrow-right"></i></a>
+                        <a href="index.php?page=products&cat=<?=$cat?>&p=<?=$current_page+1?>&ord=<?=$ord?>&s=<?=$s?>"><i class="fa fa-long-arrow-right"></i></a>
                         <?php endif; ?>
                     </div>
                 </div>
