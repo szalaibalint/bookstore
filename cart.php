@@ -122,6 +122,10 @@ if ($products_in_cart) {
                     <div class="hero__search">
                         <div class="hero__search__form">
                             <form action="#">
+                                <div class="hero__search__categories">
+                                    Összes kategória
+                                    <span class="arrow_carrot-down"></span>
+                                </div>
                                 <input type="text" placeholder="Mit szeretnél keresni?">
                                 <button type="submit" class="site-btn">Keresés</button>
                             </form>
@@ -154,16 +158,16 @@ if ($products_in_cart) {
                     <table>
             <thead>
                 <tr>
-                    <td class="shoping__product">Product</td>
-                    <td>Price</td>
-                    <td>Quantity</td>
-                    <td>Total</td>
+                    <td class="shoping__product">Termékek</td>
+                    <td>Ár</td>
+                    <td>Mennyiség</td>
+                    <td>Végösszeg</td>
                 </tr>
             </thead>
             <tbody>
                 <?php if (empty($products)): ?>
                 <tr>
-                    <td colspan="5" style="text-align:center;">You have no products added in your Shopping Cart</td>
+                    <td colspan="5" style="text-align:center;">Nincs semmi a kosaradban</td>
                 </tr>
                 <?php else: ?>
                 <?php foreach ($products as $product): ?>
@@ -208,8 +212,8 @@ if ($products_in_cart) {
             <div class="row">
                 <div class="col-lg-12">
                     <div class="shoping__cart__btns">
-                        <a href="index.php?page=products" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
-                        <input class="primary-btn cart-btn cart-btn-right" type="submit" value="Update" name="update">
+                        <a href="index.php?page=products" class="primary-btn cart-btn">VÁSÁRLÁS FOLYTATÁSA</a>
+                        <input class="primary-btn cart-btn cart-btn-right" type="submit" value="Frissítés" name="update">
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -217,12 +221,12 @@ if ($products_in_cart) {
                 </div>
                 <div class="col-lg-6">
                     <div class="shoping__checkout">
-                        <h5>Cart Total</h5>
+                        <h5>Kosár összege</h5>
                         <ul>
-                            <li>Subtotal <span class="price"><?=$subtotal?> Ft</span></li>
+                            <li>Végösszeg <span class="price"><?=$subtotal?> Ft</span></li>
                             
                         </ul>
-                        <input class="primary-btn" style="margin: auto;" type="submit" value="PROCEED TO CHECKOUT" name="placeorder">
+                        <input class="primary-btn" style="margin: auto;" type="submit" value="Tovább a fizetéshez" name="placeorder">
                     </div>
                 </div>
             </div>

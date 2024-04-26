@@ -132,11 +132,11 @@ echo <<<EOT
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                            <a href="./index.html"><img src="img/Open_book_nae_02.svg.png" alt="book" style="width: 110px;"></a>
                         </div>
                         <ul>
-                            <li>Address: Halásztelek 2314 Kisgyár u. 98</li>
-                            <li>Phone: +36 70 425 9419</li>
+                            <li>Cím: Halásztelek 2314 Kisgyár u. 98</li>
+                            <li>Elérhetőség: +36 70 425 9419</li>
                             <li>Email: szalaionthelow@gmail.com</li>
                         </ul>
                     </div>
@@ -149,7 +149,7 @@ echo <<<EOT
                             <li><a href="#">A webáruházról</a></li>
                             <li><a href="#">Biztonságos vásárlás</a></li>
                             <li><a href="#">Szállítás információ</a></li>
-                            <li><a href="#">Adatvédelmi politika</a></li>
+                            <li><a href="#">Adatvédelmi szabályzat</a></li>
                             <li><a href="#">Oldalunk</a></li>
                         </ul>
                         <ul>

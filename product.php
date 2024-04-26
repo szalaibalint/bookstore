@@ -124,7 +124,7 @@ if (isset($_GET['id'])) {
             <input type="submit" class="primary-btn" value="KOSÁRBA">
         </form>
                         <ul>
-                            <li><b>Availability</b><span><?php if($product['quantity'] > 0) {echo 'Raktáron';} else {echo 'Nincs raktáron';}?></span></li>
+                            <li><b>Elérhető:</b><span><?php if($product['quantity'] > 0) {echo 'Raktáron';} else {echo 'Nincs raktáron';}?></span></li>
                         </ul>
                     </div>
                 </div>
