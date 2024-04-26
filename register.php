@@ -141,7 +141,6 @@ echo $_POST['security_question'];
 
 
 $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-$phone = str_replace($_POST['phone']);
 $sql = sprintf("INSERT INTO register(r_fnm, r_unm, r_pwd, r_cno, r_email, r_question, r_answer) VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s');", $_POST['full_name'],  $_POST['username'], $password, $_POST['phone'], $_POST['email'], $_POST['security_question'], $_POST['security_answer']);
 
 mysqli_query($conn, $sql);
