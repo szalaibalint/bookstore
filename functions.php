@@ -41,7 +41,28 @@ echo <<<EOT
             -ms-user-select: none; /* IE 10+ */
             user-select: none; /* Standard syntax */
         }
+
+        #logout-overlay {
+            position: absolute;
+            background-color: #ffffff;
+            padding: 5px 10px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+            z-index: 9999; /* Biztosítsd, hogy az overlay mindig a legfelső rétegben legyen */
+        }
+
+        #logout-overlay a {
+            color: black; /* Set the normal color */
+            text-decoration: none; /* Remove underline if desired */
+          }
+          
+        #logout-overlay a:hover {
+            color: black; /* Ensure the color remains the same on hover */
+          }
     </style>
+
+    
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -86,7 +107,35 @@ echo <<<EOT
                             <div class="header__top__right__auth">
 EOT;
 if ($_SESSION["username"] != ""):?>
-    <a href="index.php?page=logout"><i class="fa fa-user"> <?=$_SESSION["username"]?></i></a>
+    <a id="userL" href="#"><i class="fa fa-user"> <?=$_SESSION["username"]?></i></a>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var timeoutId;
+            $('#userL').hover(function(){
+                var userPosition = $(this).offset();
+                var userWidth = $(this).outerWidth();
+                $('body').append('<div id="logout-overlay"><a href="index.php?page=logout">Logout</a></div>');
+                $('#logout-overlay').css({'top': userPosition.top + $(this).outerHeight(), 'left': userPosition.left});
+                clearTimeout(timeoutId);
+            }, function(){
+                timeoutId = setTimeout(function() {
+                    $('#logout-overlay').remove();
+                }, 300);
+            });
+            $(document).on('mouseenter', '#logout-overlay', function(){
+                clearTimeout(timeoutId);
+            });
+            $(document).on('mouseleave', '#logout-overlay', function(){
+                timeoutId = setTimeout(function() {
+                    $('#logout-overlay').remove();
+                }, 300);
+            });
+        });
+    </script>
 
                                 
 <?php
